@@ -22,8 +22,8 @@ const h = null //nothing
 const i = NaN //unreal operation
 
 //objects
-const k={a:1}//object
 const l=[1,2,3]
+const k={a:1}//object
 const m=function(){}
 
 
