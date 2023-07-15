@@ -1,5 +1,16 @@
 const log = console.log;
-const minePosition = 2;
+//const minePosition = 2;
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+  
+const minePosition = getRandomInt(10);// random from 0, to 10
+log(minePosition)
+
+
 
 
 function check(n) {
@@ -9,6 +20,8 @@ function check(n) {
         location.reload();
     }
 }
+
+
 
 
 //get container
@@ -21,7 +34,13 @@ for (let i = 0; i < 10; i++) {
 
 
 
+// Function arguments
 
+function sum(a, b) {
+    return a + b
+}
+
+const result = sum(3, 5)
 
 
 
@@ -34,3 +53,5 @@ for (let i = 0; i < 10; i++) {
 
 
 /* <button onclick="check(1)">[]</button> */
+
+

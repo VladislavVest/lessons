@@ -15,11 +15,6 @@ button {
 }
 
 .off {
-    background:red!important;
-    border-radius: 1rem;
-}
-
-.touch {
-    background-color: black;
+    background:red;
     border-radius: 1rem;
 }
