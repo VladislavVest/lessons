@@ -3,7 +3,6 @@ const log = console.log;
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
-
 const mines = [getRandomInt(10), getRandomInt(10), getRandomInt(10)];// random from 0, to 10
 log(mines)
 let life = 2;
@@ -11,8 +10,8 @@ let score = 0;
 const setScore = () => document.querySelector('.score-number').innerHTML = score
 const setLife = () => document.querySelector('.life-number').innerHTML = life
 setLife()
-function check(n, el) {
 
+function check(n, el) {
     mines.forEach((current) => {
         if (current == n) {
             el.classList.add('off')
@@ -20,15 +19,12 @@ function check(n, el) {
             if (life == 0) gameOver();
         } else score++
     })
-
     log('life', life)
     setScore()
-    setLife() 
+    setLife()
     el.classList.add('touch')
 }
 function saveScore() {
-
-
     const savedScoreJSON = localStorage.getItem('score')
     let savedScoreArr = []
     log(savedScoreJSON);
@@ -41,8 +37,8 @@ function saveScore() {
     }
     log(savedScoreArr)
     savedScoreArr.push({
-        date: '12.12.1993',
-        score: 22
+        date: new Date(),
+        score,
     })
     log(savedScoreArr);
     const newSavedScoreJSON = JSON.stringify(savedScoreArr)
@@ -50,16 +46,11 @@ function saveScore() {
 }
 function gameOver() {
     saveScore()
-
-
-
     alert('you are dead');
     setTimeout(() => {
         location.reload();
     }, 1000)
-
 }
-
 //get container
 const containerDOM = document.querySelector('.container')
 log(containerDOM);
@@ -70,13 +61,6 @@ for (let i = 0; i < 10; i++) {
 
 
 
-// // Function arguments
-
-// function sum(a, b) {
-//     return a + b
-// }
-
-// const result = sum(3, 5)
 
 
 
@@ -88,6 +72,5 @@ for (let i = 0; i < 10; i++) {
 
 
 
-/* <button onclick="check(1)">[]</button> */
 
 
