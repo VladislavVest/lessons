@@ -24,6 +24,8 @@ function check(n, el) {
     setLife()
     el.classList.add('touch')
 }
+
+
 function saveScore() {
     const savedScoreJSON = localStorage.getItem('score')
     let savedScoreArr = []
