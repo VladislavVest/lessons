@@ -1,93 +1,55 @@
 const log = console.log;
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-const mines = [getRandomInt(10), getRandomInt(10), getRandomInt(10)];// random from 0, to 10
-log(mines)
-let life = 2;
-const setScore =()=>document.querySelector('.score-number').innerHTML=life
-setScore()
-function check(n, el) {
-
-    mines.forEach((current) => {
-        if (current == n) {
-            el.classList.add('off')
-            
-            life--
-            if (life == 0) {
-                alert('you are dead');
-                setTimeout(() => {
-                    location.reload();
-                }, 1000)
-                
-            }
-
-
-        }
-    })
-
-    log('life', life)
-    setScore()  
-    el.classList.add('touch2')
-}
-
-
-//get container
-const containerDOM = document.querySelector('.container')
-log(containerDOM);
-for (let i = 0; i < 10; i++) {
-    containerDOM.innerHTML += `<button onclick="check(${i},this)">[]</button>`  
-    
-}
- 
+let   razmetka = ""
+fetch('https://api.github.com/users')
+    .then(res => res.json())
+    .then((data) => {
+        log(data)
 
 
 
-// // Function arguments
 
-// function sum(a, b) {
-//     return a + b
+    });
+
+
+//     fetch("https://api.github.com/users")
+//     .then(resp => {return resp.text()})
+//     .then(resBody => {razmetka = resBody})
+// log('VOT ONO',razmetka)
+
+
+const tableDOM = document.querySelector('table')
+log(tableDOM);
+const tbodyDOM = tableDOM.querySelector('tbody');
+
+
+
+// log(localStorage.getItem('score'));
+
+
+
+
+// const savedScoreJSON = localStorage.getItem('score')
+// let savedScoreArr = []
+// log(savedScoreJSON);
+// if (savedScoreJSON) {
+//     try {
+//         savedScoreArr = JSON.parse(savedScoreJSON)
+//     } catch (error) {
+//         log(error, 'cant parse JSON')
+//     }
 // }
 
-// const result = sum(3, 5)
 
 
-
-
-
-
-
-
-
-
-
-/* <button onclick="check(1)">[]</button> */
-
-
-
-
-
-
-// Function arguments
-
-// function sum(a, b) {
-//     return a + b
-// }
-
-// const result = sum(3, 5)
-
-
-
-
-
-
-
-
-
-
-
-/* <button onclick="check(1)">[]</button> */
-
-
+// savedScoreArr.forEach((item, i) => {
+//     log(item)
+//     tbodyDOM.innerHTML += `
+//                 <tr>
+//                     <th scope="row">${i + 1}</th>
+//                     <td>${item.login}</td>
+//                     <td>${item.id}</td>
+//                     <td>${item.avatar}</td>
+//                 </tr>   
+//             `;
+// })
