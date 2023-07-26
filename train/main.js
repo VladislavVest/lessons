@@ -1,55 +1,22 @@
 const log = console.log;
+log('start');
+log('start2');
 
-let   razmetka = ""
-fetch('https://api.github.com/users')
-    .then(res => res.json())
-    .then((data) => {
-        log(data)
+function timeout2sec() {
+    log('timeout2sec')
+}
 
+setTimeout(() => {
 
+    log('timeout2')
+}, 5000)
 
+setTimeout(timeout2sec, 2000)
 
-    });
+setTimeout(() => {
+    log('insiedeSetTimeout!')
 
-
-//     fetch("https://api.github.com/users")
-//     .then(resp => {return resp.text()})
-//     .then(resBody => {razmetka = resBody})
-// log('VOT ONO',razmetka)
-
-
-const tableDOM = document.querySelector('table')
-log(tableDOM);
-const tbodyDOM = tableDOM.querySelector('tbody');
+}, 0);
 
 
-
-// log(localStorage.getItem('score'));
-
-
-
-
-// const savedScoreJSON = localStorage.getItem('score')
-// let savedScoreArr = []
-// log(savedScoreJSON);
-// if (savedScoreJSON) {
-//     try {
-//         savedScoreArr = JSON.parse(savedScoreJSON)
-//     } catch (error) {
-//         log(error, 'cant parse JSON')
-//     }
-// }
-
-
-
-// savedScoreArr.forEach((item, i) => {
-//     log(item)
-//     tbodyDOM.innerHTML += `
-//                 <tr>
-//                     <th scope="row">${i + 1}</th>
-//                     <td>${item.login}</td>
-//                     <td>${item.id}</td>
-//                     <td>${item.avatar}</td>
-//                 </tr>   
-//             `;
-// })
+log('end')
