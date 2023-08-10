@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const log = console.log;
 mongoose.connect('mongodb://127.0.0.1:27017/test');
+const log = console.log;
 
 const Cat = mongoose.model('Cat', { name: String });
 
