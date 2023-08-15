@@ -39,13 +39,20 @@ router.put('/cats', async function (req, res, next) {
 //   // res.json({ a: 1, b: req.mydata })
 // });
 
-router.delete('/user/:id', function (req, res, next) {
+router.delete('/cats/:id', async function (req, res, next) {
   const _id = req.params.id;
-  db.remove({ _id }, function (err, numremoved) {
-    log('VOT ONO', numremoved);
-    res.end('OK');
-  });
-});
+  await Cat.findByIdAndDelete(_id);
+  res.end('OK');
+ });
+
+
+
+
+
+  // db.remove({ _id }, function (err, numremoved) {
+  //   log('VOT ONO', numremoved);
+  //   res.end('OK');
+  // });
 
 
 
