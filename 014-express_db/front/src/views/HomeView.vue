@@ -50,6 +50,28 @@ async function add(event) {
   console.log("Success:", result);
   run();
 }
+
+async function editCat(event,card) {
+  event.preventDefault();
+log(card);
+
+ 
+  const response = await fetch("http://localhost:3000/cats", {
+    method: "PUT", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(card),
+  });
+
+  const result = await response.text();
+  console.log("Success:", result);
+  run();
+  edited.value = '';
+}
+
+
+
 </script>
 
 
@@ -69,7 +91,16 @@ async function add(event) {
         <button @click="del(card._id)">Delete</button>
         <button @click="edit(card._id)">Edit</button>
       </div>
-<div v-if="edited==card._id"> ololo</div>
+<div v-if="edited==card._id"> 
+
+  <form @submit="editCat($event, card)">
+      <label for="fname">Cat name:</label><br />
+      <input v-model="card.name" type="text" id="fname" /><br />
+      <label for="lname">Color:</label><br />
+      <input v-model="card.color" type="text" id="lname" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    </div>
 
 
     </div>
