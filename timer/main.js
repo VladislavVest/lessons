@@ -34,6 +34,7 @@ function displayTimer(seconds) {
     const remainderSeconds = seconds % 60
 
     const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
+    log(display);
     timerDisplay.textContent = display;
     document.title = display;
 
